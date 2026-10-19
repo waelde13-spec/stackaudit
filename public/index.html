@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StackAudit — find the Shopify apps you're overpaying for</title>
+  <meta name="description" content="Free audit of your Shopify app stack. Spot duplicate apps, apps Shopify now does for free, and scripts slowing your store down. No install.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,700..800&family=Martian+Mono:wght@400;500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <span class="logo">Stack<span>Audit</span></span>
+      <span class="tag">for Shopify stores</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="hero">
+      <p class="eyebrow">Free app-bloat audit · no install</p>
+      <h1>Find the Shopify apps<br>you're paying for <em>twice</em>.</h1>
+      <p class="lede">Paste your store URL. In about 20 seconds you'll see duplicate apps, apps Shopify now does for free, and the scripts slowing your storefront down — with a dollar figure attached.</p>
+
+      <form id="scan-form" class="scan-form" autocomplete="off">
+        <label for="store" class="sr-only">Store URL</label>
+        <input id="store" name="store" type="text" inputmode="url" placeholder="yourstore.com" required>
+        <button type="submit" id="scan-btn">Audit my store</button>
+      </form>
+      <p class="fine">Reads only your public storefront — no login, no app permissions.</p>
+      <p class="error" id="scan-error" role="alert" hidden></p>
+    </section>
+
+    <section class="loading" id="loading" hidden aria-live="polite">
+      <div class="ticker">
+        <p data-step>Loading your homepage…</p>
+        <p data-step>Checking a product page…</p>
+        <p data-step>Matching scripts against known apps…</p>
+        <p data-step>Adding up the bill…</p>
+      </div>
+    </section>
+
+    <section class="report" id="report" hidden>
+      <p class="notice" id="notice" hidden></p>
+      <div class="report-head">
+        <div>
+          <p class="eyebrow" id="r-store"></p>
+          <h2>Your app stack, itemized</h2>
+        </div>
+        <button class="ghost" id="rescan">Audit another store</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat score">
+          <div class="dial" id="dial"><span id="r-score">–</span></div>
+          <p>Stack score</p>
+        </div>
+        <div class="stat">
+          <p class="big" id="r-apps">0</p>
+          <p>apps detected</p>
+        </div>
+        <div class="stat accent">
+          <p class="big"><span id="r-savings">$0</span></p>
+          <p>you could cut each month</p>
+        </div>
+        <div class="stat">
+          <p class="big" id="r-yearly">$0</p>
+          <p>per year</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="bill card">
+          <div class="card-head">
+            <h3>Your app bill</h3>
+            <p class="hint">Prices start at a $<span id="r-default">58</span>/mo industry average. Type what you actually pay (Settings → Billing) and the totals update.</p>
+          </div>
+          <div class="table-scroll">
+          <table>
+            <thead><tr><th>App</th><th>Category</th><th class="num">$/mo</th></tr></thead>
+            <tbody id="bill-rows"></tbody>
+            <tfoot>
+              <tr class="add-row">
+                <td colspan="3">
+                  <form id="add-app" class="add-app">
+                    <input id="add-name" placeholder="Add an app we can't see (e.g. inventory, shipping)" maxlength="60">
+                    <input id="add-cost" type="number" min="0" step="1" placeholder="$/mo">
+                    <button type="submit" class="ghost small">Add</button>
+                  </form>
+                </td>
+              </tr>
+              <tr class="total"><td colspan="2">Total monthly app spend</td><td class="num" id="bill-total">$0</td></tr>
+              <tr class="cut"><td colspan="2">Highlighted lines you could cut</td><td class="num"><span id="bill-cut">$0</span></td></tr>
+            </tfoot>
+          </table>
+          </div>
+        </div>
+
+        <div class="findings">
+          <h3>What to look at first</h3>
+          <div id="findings"></div>
+        </div>
+      </div>
+
+      <details class="card scripts">
+        <summary>Third-party scripts on your storefront (<span id="r-hosts">0</span> domains)</summary>
+        <ul id="host-list"></ul>
+      </details>
+
+      <div class="card capture" id="capture">
+        <div>
+          <h3>Get the removal checklist</h3>
+          <p>We'll email this report plus a step-by-step checklist for safely removing each flagged app — including leftover code most uninstalls leave behind.</p>
+        </div>
+        <form id="lead-form" class="lead-form">
+          <label for="lead-email" class="sr-only">Email</label>
+          <input id="lead-email" type="email" placeholder="you@yourstore.com" required>
+          <button type="submit">Email me the checklist</button>
+        </form>
+        <p class="fine" id="lead-msg" role="status"></p>
+      </div>
+
+      <p class="disclaimer">StackAudit only sees what loads on your public storefront. Back-office apps (inventory, shipping, accounting) don't show up — add them above. Findings are suggestions: confirm an app's features before removing it.</p>
+    </section>
+  </main>
+
+  <footer class="wrap foot">StackAudit isn't affiliated with Shopify Inc.</footer>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

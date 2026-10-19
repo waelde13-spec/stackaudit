@@ -1,0 +1,35 @@
+{
+  "_note": "native = a free first-party Shopify option that covers the basic version of this job. Always worded as 'check whether it covers what you use' — never as a guaranteed drop-in replacement.",
+  "categories": {
+    "email-sms":           { "label": "Email & SMS marketing", "native": "Shopify Email covers basic newsletters and automated abandoned-cart emails" },
+    "email":               { "label": "Email marketing", "native": "Shopify Email covers basic newsletters and automated abandoned-cart emails" },
+    "sms":                 { "label": "SMS marketing" },
+    "popups":              { "label": "Pop-ups & signup forms", "native": "Shopify Forms (free) handles email/SMS signup pop-ups" },
+    "reviews":             { "label": "Product reviews" },
+    "loyalty":             { "label": "Loyalty & rewards" },
+    "upsell":              { "label": "Upsells & cross-sells", "native": "Shopify Search & Discovery (free) adds complementary/related product recommendations" },
+    "bundles":             { "label": "Product bundles", "native": "Shopify Bundles (free) handles fixed and multipack bundles" },
+    "subscriptions":       { "label": "Subscriptions", "native": "Shopify Subscriptions (free) covers basic subscribe-and-save" },
+    "chat-helpdesk":       { "label": "Live chat & helpdesk", "native": "Shopify Inbox (free) covers live chat and FAQ auto-replies" },
+    "session-analytics":   { "label": "Heatmaps & session recording" },
+    "page-builder":        { "label": "Page builders", "native": "Online Store 2.0 themes support drag-and-drop sections on every page" },
+    "all-in-one":          { "label": "All-in-one conversion suites" },
+    "conversion-widgets":  { "label": "Conversion widgets (bars, timers, badges)" },
+    "translation":         { "label": "Translation", "native": "Shopify Translate & Adapt (free) translates the store into multiple languages" },
+    "wishlist":            { "label": "Wishlists" },
+    "social-feed":         { "label": "Instagram/social feeds" },
+    "size-chart":          { "label": "Size charts", "native": "A size chart can be a theme block or page with no app" },
+    "order-tracking":      { "label": "Order tracking", "native": "Shopify's built-in order status page and Shop app show tracking" },
+    "accessibility-overlay": { "label": "Accessibility overlays" },
+    "cookie-banner":       { "label": "Cookie consent", "native": "Shopify's built-in customer privacy banner (Settings → Customer privacy)" }
+  },
+  "overlaps": [
+    { "categories": ["email", "email-sms"], "redundant": "email", "note": "Two email platforms — your email/SMS platform already sends newsletters, so the second email tool is usually redundant." },
+    { "categories": ["sms", "email-sms"], "redundant": null, "note": "Your email platform also offers SMS. A dedicated SMS tool is a valid choice, but check whether you're paying for SMS in both." },
+    { "categories": ["popups", "email-sms"], "redundant": "popups", "note": "Most email/SMS platforms include their own signup pop-ups — a separate pop-up app is often redundant." },
+    { "categories": ["all-in-one", "conversion-widgets"], "redundant": "conversion-widgets", "note": "All-in-one suites usually include bars, timers and badges already." },
+    { "categories": ["all-in-one", "reviews"], "redundant": null, "note": "Many all-in-one suites include a reviews module — check whether you're paying for reviews twice." },
+    { "categories": ["loyalty", "reviews"], "redundant": null, "note": "Some suites (e.g. Yotpo, Growave) bundle reviews and loyalty — check if you pay twice." },
+    { "categories": ["all-in-one", "upsell"], "redundant": null, "note": "All-in-one suites often include upsell/bundle widgets — check for duplicate widgets." }
+  ]
+}

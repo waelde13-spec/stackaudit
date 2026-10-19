@@ -1,0 +1,418 @@
+{
+  "_note": "Seed list. Each app is detected when any pattern appears in a script/link/iframe URL or in inline page source. Tune against real stores before launch: run `npm run scan -- https://store.com` on stores whose apps you already know. nativeReplaceable=true marks apps whose typical use is covered by a free Shopify feature (only these get a \"replace with native\" finding).",
+  "apps": [
+    {
+      "id": "klaviyo",
+      "name": "Klaviyo",
+      "category": "email-sms",
+      "patterns": [
+        "static.klaviyo.com",
+        "a.klaviyo.com",
+        "klaviyo.com/onsite"
+      ]
+    },
+    {
+      "id": "omnisend",
+      "name": "Omnisend",
+      "category": "email-sms",
+      "patterns": [
+        "omnisnippet1.com",
+        "omnisend.com"
+      ]
+    },
+    {
+      "id": "privy",
+      "name": "Privy",
+      "category": "popups",
+      "patterns": [
+        "widget.privy.com",
+        "privy.com/assets"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "attentive",
+      "name": "Attentive",
+      "category": "sms",
+      "patterns": [
+        "cdn.attn.tv",
+        "attentivemobile.com"
+      ]
+    },
+    {
+      "id": "postscript",
+      "name": "Postscript",
+      "category": "sms",
+      "patterns": [
+        "sdk.postscript.io",
+        "postscript.io"
+      ]
+    },
+    {
+      "id": "mailchimp",
+      "name": "Mailchimp",
+      "category": "email",
+      "patterns": [
+        "chimpstatic.com",
+        "list-manage.com"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "judgeme",
+      "name": "Judge.me",
+      "category": "reviews",
+      "patterns": [
+        "cdn.judge.me",
+        "judge.me/",
+        "jdgm-"
+      ]
+    },
+    {
+      "id": "loox",
+      "name": "Loox",
+      "category": "reviews",
+      "patterns": [
+        "loox.io"
+      ]
+    },
+    {
+      "id": "yotpo",
+      "name": "Yotpo",
+      "category": "reviews",
+      "patterns": [
+        "staticw2.yotpo.com",
+        "cdn-widgetsrepository.yotpo.com",
+        "yotpo.com"
+      ]
+    },
+    {
+      "id": "okendo",
+      "name": "Okendo",
+      "category": "reviews",
+      "patterns": [
+        "okendo.io"
+      ]
+    },
+    {
+      "id": "stamped",
+      "name": "Stamped",
+      "category": "reviews",
+      "patterns": [
+        "stamped.io"
+      ]
+    },
+    {
+      "id": "reviewsio",
+      "name": "REVIEWS.io",
+      "category": "reviews",
+      "patterns": [
+        "widget.reviews.io",
+        "reviews.io/"
+      ]
+    },
+    {
+      "id": "smile",
+      "name": "Smile.io",
+      "category": "loyalty",
+      "patterns": [
+        "smile.io",
+        "cdn.sweettooth.io"
+      ]
+    },
+    {
+      "id": "loyaltylion",
+      "name": "LoyaltyLion",
+      "category": "loyalty",
+      "patterns": [
+        "loyaltylion.net",
+        "loyaltylion.com"
+      ]
+    },
+    {
+      "id": "growave",
+      "name": "Growave",
+      "category": "loyalty",
+      "patterns": [
+        "growave.io"
+      ]
+    },
+    {
+      "id": "rebuy",
+      "name": "Rebuy",
+      "category": "upsell",
+      "patterns": [
+        "rebuyengine.com"
+      ]
+    },
+    {
+      "id": "zipify",
+      "name": "Zipify OCU",
+      "category": "upsell",
+      "patterns": [
+        "zipify"
+      ]
+    },
+    {
+      "id": "bold-upsell",
+      "name": "Bold apps",
+      "category": "upsell",
+      "patterns": [
+        "boldapps.net",
+        "boldcommerce.com"
+      ]
+    },
+    {
+      "id": "fastbundle",
+      "name": "Fast Bundle",
+      "category": "bundles",
+      "patterns": [
+        "fastbundle.co"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "recharge",
+      "name": "Recharge",
+      "category": "subscriptions",
+      "patterns": [
+        "rechargecdn.com",
+        "rechargeapps.com"
+      ]
+    },
+    {
+      "id": "gorgias",
+      "name": "Gorgias",
+      "category": "chat-helpdesk",
+      "patterns": [
+        "gorgias.chat",
+        "config.gorgias.chat"
+      ]
+    },
+    {
+      "id": "tidio",
+      "name": "Tidio",
+      "category": "chat-helpdesk",
+      "patterns": [
+        "code.tidio.co"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "zendesk",
+      "name": "Zendesk",
+      "category": "chat-helpdesk",
+      "patterns": [
+        "static.zdassets.com"
+      ]
+    },
+    {
+      "id": "intercom",
+      "name": "Intercom",
+      "category": "chat-helpdesk",
+      "patterns": [
+        "widget.intercom.io",
+        "js.intercomcdn.com"
+      ]
+    },
+    {
+      "id": "hotjar",
+      "name": "Hotjar",
+      "category": "session-analytics",
+      "patterns": [
+        "static.hotjar.com"
+      ]
+    },
+    {
+      "id": "luckyorange",
+      "name": "Lucky Orange",
+      "category": "session-analytics",
+      "patterns": [
+        "luckyorange.com",
+        "luckyorange.net"
+      ]
+    },
+    {
+      "id": "clarity",
+      "name": "Microsoft Clarity",
+      "category": "session-analytics",
+      "free": true,
+      "patterns": [
+        "clarity.ms"
+      ]
+    },
+    {
+      "id": "pagefly",
+      "name": "PageFly",
+      "category": "page-builder",
+      "patterns": [
+        "pagefly"
+      ]
+    },
+    {
+      "id": "gempages",
+      "name": "GemPages",
+      "category": "page-builder",
+      "patterns": [
+        "gempages"
+      ]
+    },
+    {
+      "id": "shogun",
+      "name": "Shogun",
+      "category": "page-builder",
+      "patterns": [
+        "getshogun.com",
+        "shogun-frontend"
+      ]
+    },
+    {
+      "id": "vitals",
+      "name": "Vitals",
+      "category": "all-in-one",
+      "patterns": [
+        "appsolve.io"
+      ]
+    },
+    {
+      "id": "hextom",
+      "name": "Hextom apps",
+      "category": "conversion-widgets",
+      "patterns": [
+        "hextom.com"
+      ]
+    },
+    {
+      "id": "elfsight",
+      "name": "Elfsight widgets",
+      "category": "conversion-widgets",
+      "patterns": [
+        "elfsightcdn.com",
+        "apps.elfsight.com"
+      ]
+    },
+    {
+      "id": "justuno",
+      "name": "Justuno",
+      "category": "popups",
+      "patterns": [
+        "justuno.com"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "optinmonster",
+      "name": "OptinMonster",
+      "category": "popups",
+      "patterns": [
+        "omappapi.com"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "wisepops",
+      "name": "Wisepops",
+      "category": "popups",
+      "patterns": [
+        "wisepops.com"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "weglot",
+      "name": "Weglot",
+      "category": "translation",
+      "patterns": [
+        "cdn.weglot.com"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "langify",
+      "name": "Langify",
+      "category": "translation",
+      "patterns": [
+        "langify"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "swym",
+      "name": "Wishlist Plus (Swym)",
+      "category": "wishlist",
+      "patterns": [
+        "swymrelay.com",
+        "swym-"
+      ]
+    },
+    {
+      "id": "instafeed",
+      "name": "Instafeed",
+      "category": "social-feed",
+      "patterns": [
+        "instafeed.nfcube.com",
+        "nfcube"
+      ]
+    },
+    {
+      "id": "kiwisizing",
+      "name": "Kiwi Size Chart",
+      "category": "size-chart",
+      "patterns": [
+        "kiwisizing.com"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "aftership",
+      "name": "AfterShip",
+      "category": "order-tracking",
+      "patterns": [
+        "aftership.com"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "accessibe",
+      "name": "accessiBe",
+      "category": "accessibility-overlay",
+      "patterns": [
+        "acsbapp.com"
+      ]
+    },
+    {
+      "id": "userway",
+      "name": "UserWay",
+      "category": "accessibility-overlay",
+      "patterns": [
+        "userway.org"
+      ]
+    },
+    {
+      "id": "pandectes",
+      "name": "Pandectes GDPR",
+      "category": "cookie-banner",
+      "patterns": [
+        "pandectes"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "cookiebot",
+      "name": "Cookiebot",
+      "category": "cookie-banner",
+      "patterns": [
+        "consent.cookiebot.com"
+      ],
+      "nativeReplaceable": true
+    },
+    {
+      "id": "onetrust",
+      "name": "OneTrust",
+      "category": "cookie-banner",
+      "patterns": [
+        "cdn.cookielaw.org"
+      ]
+    }
+  ]
+}
