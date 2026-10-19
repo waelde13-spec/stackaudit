@@ -1,418 +1,96 @@
 {
-  "_note": "Seed list. Each app is detected when any pattern appears in a script/link/iframe URL or in inline page source. Tune against real stores before launch: run `npm run scan -- https://store.com` on stores whose apps you already know. nativeReplaceable=true marks apps whose typical use is covered by a free Shopify feature (only these get a \"replace with native\" finding).",
+  "_note": "Each app is detected when a pattern appears in a script/link/iframe URL or the page source, or when a theme app embed folder starts with its id/name or is listed in \"embeds\". nativeReplaceable=true marks apps whose typical use is covered by a free Shopify feature (only these get a \"replace with native\" finding). Tune with `npm run scan -- <store>`.",
   "apps": [
-    {
-      "id": "klaviyo",
-      "name": "Klaviyo",
-      "category": "email-sms",
-      "patterns": [
-        "static.klaviyo.com",
-        "a.klaviyo.com",
-        "klaviyo.com/onsite"
-      ]
-    },
-    {
-      "id": "omnisend",
-      "name": "Omnisend",
-      "category": "email-sms",
-      "patterns": [
-        "omnisnippet1.com",
-        "omnisend.com"
-      ]
-    },
-    {
-      "id": "privy",
-      "name": "Privy",
-      "category": "popups",
-      "patterns": [
-        "widget.privy.com",
-        "privy.com/assets"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "attentive",
-      "name": "Attentive",
-      "category": "sms",
-      "patterns": [
-        "cdn.attn.tv",
-        "attentivemobile.com"
-      ]
-    },
-    {
-      "id": "postscript",
-      "name": "Postscript",
-      "category": "sms",
-      "patterns": [
-        "sdk.postscript.io",
-        "postscript.io"
-      ]
-    },
-    {
-      "id": "mailchimp",
-      "name": "Mailchimp",
-      "category": "email",
-      "patterns": [
-        "chimpstatic.com",
-        "list-manage.com"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "judgeme",
-      "name": "Judge.me",
-      "category": "reviews",
-      "patterns": [
-        "cdn.judge.me",
-        "judge.me/",
-        "jdgm-"
-      ]
-    },
-    {
-      "id": "loox",
-      "name": "Loox",
-      "category": "reviews",
-      "patterns": [
-        "loox.io"
-      ]
-    },
-    {
-      "id": "yotpo",
-      "name": "Yotpo",
-      "category": "reviews",
-      "patterns": [
-        "staticw2.yotpo.com",
-        "cdn-widgetsrepository.yotpo.com",
-        "yotpo.com"
-      ]
-    },
-    {
-      "id": "okendo",
-      "name": "Okendo",
-      "category": "reviews",
-      "patterns": [
-        "okendo.io"
-      ]
-    },
-    {
-      "id": "stamped",
-      "name": "Stamped",
-      "category": "reviews",
-      "patterns": [
-        "stamped.io"
-      ]
-    },
-    {
-      "id": "reviewsio",
-      "name": "REVIEWS.io",
-      "category": "reviews",
-      "patterns": [
-        "widget.reviews.io",
-        "reviews.io/"
-      ]
-    },
-    {
-      "id": "smile",
-      "name": "Smile.io",
-      "category": "loyalty",
-      "patterns": [
-        "smile.io",
-        "cdn.sweettooth.io"
-      ]
-    },
-    {
-      "id": "loyaltylion",
-      "name": "LoyaltyLion",
-      "category": "loyalty",
-      "patterns": [
-        "loyaltylion.net",
-        "loyaltylion.com"
-      ]
-    },
-    {
-      "id": "growave",
-      "name": "Growave",
-      "category": "loyalty",
-      "patterns": [
-        "growave.io"
-      ]
-    },
-    {
-      "id": "rebuy",
-      "name": "Rebuy",
-      "category": "upsell",
-      "patterns": [
-        "rebuyengine.com"
-      ]
-    },
-    {
-      "id": "zipify",
-      "name": "Zipify OCU",
-      "category": "upsell",
-      "patterns": [
-        "zipify"
-      ]
-    },
-    {
-      "id": "bold-upsell",
-      "name": "Bold apps",
-      "category": "upsell",
-      "patterns": [
-        "boldapps.net",
-        "boldcommerce.com"
-      ]
-    },
-    {
-      "id": "fastbundle",
-      "name": "Fast Bundle",
-      "category": "bundles",
-      "patterns": [
-        "fastbundle.co"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "recharge",
-      "name": "Recharge",
-      "category": "subscriptions",
-      "patterns": [
-        "rechargecdn.com",
-        "rechargeapps.com"
-      ]
-    },
-    {
-      "id": "gorgias",
-      "name": "Gorgias",
-      "category": "chat-helpdesk",
-      "patterns": [
-        "gorgias.chat",
-        "config.gorgias.chat"
-      ]
-    },
-    {
-      "id": "tidio",
-      "name": "Tidio",
-      "category": "chat-helpdesk",
-      "patterns": [
-        "code.tidio.co"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "zendesk",
-      "name": "Zendesk",
-      "category": "chat-helpdesk",
-      "patterns": [
-        "static.zdassets.com"
-      ]
-    },
-    {
-      "id": "intercom",
-      "name": "Intercom",
-      "category": "chat-helpdesk",
-      "patterns": [
-        "widget.intercom.io",
-        "js.intercomcdn.com"
-      ]
-    },
-    {
-      "id": "hotjar",
-      "name": "Hotjar",
-      "category": "session-analytics",
-      "patterns": [
-        "static.hotjar.com"
-      ]
-    },
-    {
-      "id": "luckyorange",
-      "name": "Lucky Orange",
-      "category": "session-analytics",
-      "patterns": [
-        "luckyorange.com",
-        "luckyorange.net"
-      ]
-    },
-    {
-      "id": "clarity",
-      "name": "Microsoft Clarity",
-      "category": "session-analytics",
-      "free": true,
-      "patterns": [
-        "clarity.ms"
-      ]
-    },
-    {
-      "id": "pagefly",
-      "name": "PageFly",
-      "category": "page-builder",
-      "patterns": [
-        "pagefly"
-      ]
-    },
-    {
-      "id": "gempages",
-      "name": "GemPages",
-      "category": "page-builder",
-      "patterns": [
-        "gempages"
-      ]
-    },
-    {
-      "id": "shogun",
-      "name": "Shogun",
-      "category": "page-builder",
-      "patterns": [
-        "getshogun.com",
-        "shogun-frontend"
-      ]
-    },
-    {
-      "id": "vitals",
-      "name": "Vitals",
-      "category": "all-in-one",
-      "patterns": [
-        "appsolve.io"
-      ]
-    },
-    {
-      "id": "hextom",
-      "name": "Hextom apps",
-      "category": "conversion-widgets",
-      "patterns": [
-        "hextom.com"
-      ]
-    },
-    {
-      "id": "elfsight",
-      "name": "Elfsight widgets",
-      "category": "conversion-widgets",
-      "patterns": [
-        "elfsightcdn.com",
-        "apps.elfsight.com"
-      ]
-    },
-    {
-      "id": "justuno",
-      "name": "Justuno",
-      "category": "popups",
-      "patterns": [
-        "justuno.com"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "optinmonster",
-      "name": "OptinMonster",
-      "category": "popups",
-      "patterns": [
-        "omappapi.com"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "wisepops",
-      "name": "Wisepops",
-      "category": "popups",
-      "patterns": [
-        "wisepops.com"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "weglot",
-      "name": "Weglot",
-      "category": "translation",
-      "patterns": [
-        "cdn.weglot.com"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "langify",
-      "name": "Langify",
-      "category": "translation",
-      "patterns": [
-        "langify"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "swym",
-      "name": "Wishlist Plus (Swym)",
-      "category": "wishlist",
-      "patterns": [
-        "swymrelay.com",
-        "swym-"
-      ]
-    },
-    {
-      "id": "instafeed",
-      "name": "Instafeed",
-      "category": "social-feed",
-      "patterns": [
-        "instafeed.nfcube.com",
-        "nfcube"
-      ]
-    },
-    {
-      "id": "kiwisizing",
-      "name": "Kiwi Size Chart",
-      "category": "size-chart",
-      "patterns": [
-        "kiwisizing.com"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "aftership",
-      "name": "AfterShip",
-      "category": "order-tracking",
-      "patterns": [
-        "aftership.com"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "accessibe",
-      "name": "accessiBe",
-      "category": "accessibility-overlay",
-      "patterns": [
-        "acsbapp.com"
-      ]
-    },
-    {
-      "id": "userway",
-      "name": "UserWay",
-      "category": "accessibility-overlay",
-      "patterns": [
-        "userway.org"
-      ]
-    },
-    {
-      "id": "pandectes",
-      "name": "Pandectes GDPR",
-      "category": "cookie-banner",
-      "patterns": [
-        "pandectes"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "cookiebot",
-      "name": "Cookiebot",
-      "category": "cookie-banner",
-      "patterns": [
-        "consent.cookiebot.com"
-      ],
-      "nativeReplaceable": true
-    },
-    {
-      "id": "onetrust",
-      "name": "OneTrust",
-      "category": "cookie-banner",
-      "patterns": [
-        "cdn.cookielaw.org"
-      ]
-    }
+    {"id":"klaviyo","name":"Klaviyo","category":"email-sms","patterns":["static.klaviyo.com","a.klaviyo.com","klaviyo.com/onsite"]},
+    {"id":"omnisend","name":"Omnisend","category":"email-sms","patterns":["omnisnippet1.com","omnisend.com"]},
+    {"id":"privy","name":"Privy","category":"popups","patterns":["widget.privy.com","privy.com/assets"],"nativeReplaceable":true},
+    {"id":"attentive","name":"Attentive","category":"sms","patterns":["cdn.attn.tv","attentivemobile.com"]},
+    {"id":"postscript","name":"Postscript","category":"sms","patterns":["sdk.postscript.io","postscript.io"],"embeds":["test-sms"]},
+    {"id":"mailchimp","name":"Mailchimp","category":"email","patterns":["chimpstatic.com","list-manage.com"],"nativeReplaceable":true},
+    {"id":"judgeme","name":"Judge.me","category":"reviews","patterns":["cdn.judge.me","judge.me/","jdgm-"]},
+    {"id":"loox","name":"Loox","category":"reviews","patterns":["loox.io"]},
+    {"id":"yotpo","name":"Yotpo Reviews","category":"reviews","patterns":["staticw2.yotpo.com"]},
+    {"id":"okendo","name":"Okendo","category":"reviews","patterns":["okendo.io"]},
+    {"id":"stamped","name":"Stamped","category":"reviews","patterns":["stamped.io"]},
+    {"id":"reviewsio","name":"REVIEWS.io","category":"reviews","patterns":["widget.reviews.io","reviews.io/"]},
+    {"id":"smile","name":"Smile.io","category":"loyalty","patterns":["smile.io","cdn.sweettooth.io"]},
+    {"id":"loyaltylion","name":"LoyaltyLion","category":"loyalty","patterns":["loyaltylion.net","loyaltylion.com"]},
+    {"id":"growave","name":"Growave","category":"loyalty","patterns":["growave.io"]},
+    {"id":"rebuy","name":"Rebuy","category":"upsell","patterns":["rebuyengine.com"]},
+    {"id":"zipify","name":"Zipify OCU","category":"upsell","patterns":["zipify"]},
+    {"id":"bold-upsell","name":"Bold apps","category":"upsell","patterns":["boldapps.net","boldcommerce.com"]},
+    {"id":"fastbundle","name":"Fast Bundle","category":"bundles","patterns":["fastbundle.co"],"nativeReplaceable":true},
+    {"id":"recharge","name":"Recharge","category":"subscriptions","patterns":["rechargecdn.com","rechargeapps.com"]},
+    {"id":"gorgias","name":"Gorgias","category":"chat-helpdesk","patterns":["gorgias.chat","config.gorgias.chat"]},
+    {"id":"tidio","name":"Tidio","category":"chat-helpdesk","patterns":["code.tidio.co"],"nativeReplaceable":true},
+    {"id":"zendesk","name":"Zendesk","category":"chat-helpdesk","patterns":["static.zdassets.com"]},
+    {"id":"intercom","name":"Intercom","category":"chat-helpdesk","patterns":["widget.intercom.io","js.intercomcdn.com"]},
+    {"id":"hotjar","name":"Hotjar","category":"session-analytics","patterns":["static.hotjar.com"]},
+    {"id":"luckyorange","name":"Lucky Orange","category":"session-analytics","patterns":["luckyorange.com","luckyorange.net"]},
+    {"id":"clarity","name":"Microsoft Clarity","category":"session-analytics","free":true,"patterns":["clarity.ms"]},
+    {"id":"pagefly","name":"PageFly","category":"page-builder","patterns":["pagefly"]},
+    {"id":"gempages","name":"GemPages","category":"page-builder","patterns":["gempages"]},
+    {"id":"shogun","name":"Shogun","category":"page-builder","patterns":["getshogun.com","shogun-frontend"]},
+    {"id":"vitals","name":"Vitals","category":"all-in-one","patterns":["appsolve.io"]},
+    {"id":"hextom","name":"Hextom apps","category":"conversion-widgets","patterns":["hextom.com"]},
+    {"id":"elfsight","name":"Elfsight widgets","category":"conversion-widgets","patterns":["elfsightcdn.com","apps.elfsight.com"]},
+    {"id":"justuno","name":"Justuno","category":"popups","patterns":["justuno.com"],"nativeReplaceable":true},
+    {"id":"optinmonster","name":"OptinMonster","category":"popups","patterns":["omappapi.com"],"nativeReplaceable":true},
+    {"id":"wisepops","name":"Wisepops","category":"popups","patterns":["wisepops.com"],"nativeReplaceable":true},
+    {"id":"weglot","name":"Weglot","category":"translation","patterns":["cdn.weglot.com"],"nativeReplaceable":true},
+    {"id":"langify","name":"Langify","category":"translation","patterns":["langify"],"nativeReplaceable":true},
+    {"id":"swym","name":"Wishlist Plus (Swym)","category":"wishlist","patterns":["swymrelay.com","swym-"]},
+    {"id":"instafeed","name":"Instafeed","category":"social-feed","patterns":["instafeed.nfcube.com","nfcube"]},
+    {"id":"kiwisizing","name":"Kiwi Size Chart","category":"size-chart","patterns":["kiwisizing.com"],"nativeReplaceable":true,"embeds":["kiwi-size-chart"]},
+    {"id":"aftership","name":"AfterShip","category":"order-tracking","patterns":["aftership.com","automizely.com/tracking"],"nativeReplaceable":true},
+    {"id":"accessibe","name":"accessiBe","category":"accessibility-overlay","patterns":["acsbapp.com"]},
+    {"id":"userway","name":"UserWay","category":"accessibility-overlay","patterns":["userway.org"]},
+    {"id":"pandectes","name":"Pandectes GDPR","category":"cookie-banner","patterns":["pandectes"],"nativeReplaceable":true},
+    {"id":"cookiebot","name":"Cookiebot","category":"cookie-banner","patterns":["consent.cookiebot.com"],"nativeReplaceable":true},
+    {"id":"onetrust","name":"OneTrust","category":"cookie-banner","patterns":["cdn.cookielaw.org"]},
+    {"id":"yotpo-suite","name":"Yotpo (reviews or loyalty)","category":"yotpo-suite","patterns":["cdn-widgetsrepository.yotpo.com"]},
+    {"id":"yotpo-loyalty","name":"Yotpo Loyalty","category":"loyalty","patterns":["cdn-loyalty.yotpo.com","cdn-swell-assets.yotpo.com"]},
+    {"id":"bazaarvoice","name":"Bazaarvoice","category":"reviews","patterns":["apps.bazaarvoice.com"]},
+    {"id":"rivo","name":"Rivo","category":"loyalty","patterns":["rivo.io"],"embeds":["rivo-loyalty"]},
+    {"id":"getredo","name":"Redo","category":"returns","patterns":["getredo.com"]},
+    {"id":"aftership-returns","name":"AfterShip Returns","category":"returns","patterns":["widgets.automizely.com/returns"]},
+    {"id":"loop","name":"Loop Returns","category":"returns","patterns":["loopreturns.com"]},
+    {"id":"govx","name":"GovX ID","category":"discount-verification","patterns":["govx.com"]},
+    {"id":"impact","name":"Impact","category":"affiliate","patterns":["impactcdn.com"]},
+    {"id":"awin","name":"Awin","category":"affiliate","patterns":["awin-shopify-integration","/apps/awin"]},
+    {"id":"shareasale","name":"ShareASale","category":"affiliate","patterns":["static.shareasale.com"]},
+    {"id":"refersion","name":"Refersion","category":"affiliate","patterns":["refersion.com"]},
+    {"id":"shopmy","name":"ShopMy","category":"affiliate","patterns":["shopmy.us"]},
+    {"id":"socialsnowball","name":"Social Snowball","category":"affiliate","patterns":["socialsnowball.io"]},
+    {"id":"superfiliate","name":"Superfiliate","category":"affiliate","patterns":["superfiliate-cdn.com"]},
+    {"id":"growi","name":"Growi","category":"affiliate","patterns":["growi.io"],"embeds":["growi"]},
+    {"id":"elevar","name":"Elevar","category":"server-tracking","patterns":["/a/elevar","getelevar.com"]},
+    {"id":"fueled","name":"Fueled","category":"server-tracking","patterns":["fueled.io","/apps/fueled"]},
+    {"id":"northbeam","name":"Northbeam","category":"attribution","patterns":["northbeam.io"]},
+    {"id":"triplewhale","name":"Triple Whale","category":"attribution","patterns":["triplewhale.com","triplepixel"]},
+    {"id":"intelligems","name":"Intelligems","category":"ab-testing","patterns":["intelligems.io"]},
+    {"id":"mida","name":"Mida","category":"ab-testing","patterns":["mida.so"]},
+    {"id":"gladly","name":"Gladly","category":"chat-helpdesk","patterns":["cdn.gladly.com"]},
+    {"id":"kustomer","name":"Kustomer","category":"chat-helpdesk","patterns":["kustomerapp.com","/apps/kustomer"]},
+    {"id":"richpanel","name":"Richpanel","category":"chat-helpdesk","patterns":["richpanel.com"]},
+    {"id":"electricsms","name":"Electric SMS","category":"sms","patterns":["electricsms.com"]},
+    {"id":"pushowl","name":"PushOwl","category":"push","patterns":["pushowl.com"],"embeds":["pushowl"]},
+    {"id":"ordergroove","name":"Ordergroove","category":"subscriptions","patterns":["ordergroove.com"]},
+    {"id":"minmaxify","name":"MinMaxify","category":"order-limits","patterns":["minmaxify.com"]},
+    {"id":"nofraud","name":"NoFraud","category":"fraud","patterns":["nofraud.com"]},
+    {"id":"signifyd","name":"Signifyd","category":"fraud","patterns":["signifyd.com"]},
+    {"id":"easylockdown","name":"EasyLockdown","category":"store-lock","patterns":["/apps/easylockdown"]},
+    {"id":"preordermanager","name":"Pre-Order Manager","category":"preorder","patterns":["bossapps.co"],"embeds":["preorder-manager"]},
+    {"id":"restockrocket","name":"Restock Rocket","category":"back-in-stock","patterns":["restockrocket"],"embeds":["restockrocket"]},
+    {"id":"wishlistking","name":"Wishlist King","category":"wishlist","patterns":["appmate.io"],"embeds":["swish-wishlist-king"]},
+    {"id":"tolstoy","name":"Tolstoy","category":"shoppable-video","patterns":["gotolstoy.com"]},
+    {"id":"foursixty","name":"Foursixty","category":"social-feed","patterns":["foursixty.com"]},
+    {"id":"stackla","name":"Nosto UGC (Stackla)","category":"social-feed","patterns":["stackla.com"]},
+    {"id":"klevu","name":"Klevu","category":"search","patterns":["klevu.com"]},
+    {"id":"ecocart","name":"EcoCart","category":"sustainability","patterns":["ecocart.tools"]},
+    {"id":"fondue","name":"Fondue","category":"cashback","patterns":["getfondue.com"]},
+    {"id":"heatmapcom","name":"Heatmap","category":"session-analytics","patterns":["heatmap.com"]},
+    {"id":"gdprcookieconsent","name":"GDPR Cookie Consent","category":"cookie-banner","patterns":["gdpr-cookie-consent"],"embeds":["gdpr-cookie-consent"]},
+    {"id":"applovin","name":"AppLovin","category":"ad-pixel","patterns":["applovin.com"],"embeds":["applovin-shop-integration"],"free":true}
   ]
 }

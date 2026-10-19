@@ -90,3 +90,39 @@ test('demo mode produces a full report', async () => {
   assert.ok(r.apps.length >= 10);
   assert.ok(r.findings.length > 0);
 });
+
+// ---- regression fixtures from live stores ----
+const real = JSON.parse(readFileSync(new URL('./fixtures/real-stores.json', import.meta.url), 'utf8')).stores;
+const toPage = (s) => {
+  const tags = [
+    ...s.hosts.map((h) => `<script src="https://${h}" async></script>`),
+    ...s.proxies.map((p) => `<script src="https://${s.store}${p}/x.js" async></script>`),
+    ...s.exts.map((e, i) => `<script src="https://cdn.shopify.com/extensions/0190aaaa-bbbb-7ccc-8ddd-00000000000${i}/${e}-12/assets/a.js" defer></script>`),
+  ];
+  return { url: `https://${s.store}/`, html: `<html><head></head><body class="shopify-section">${tags.join('\n')}</body></html>` };
+};
+
+for (const s of real) {
+  test(`live store: ${s.store}`, () => {
+    const d = detect([toPage(s)], s.store);
+    const ids = d.apps.map((a) => a.id);
+    for (const id of s.expected) assert.ok(ids.includes(id), `missed ${id}; got ${ids.join(',')}`);
+    for (const id of s.notExpected || []) assert.ok(!ids.includes(id), `false positive ${id}`);
+    const r = analyze(d);
+    assert.ok(!r.findings.some((f) => f.type === 'duplicate' && f.apps.includes('yotpo-suite')));
+    for (const h of d.scripts.thirdPartyHosts) assert.ok(!/doubleclick|facebook|googletagmanager|taboola|outbrain|bing/.test(h), `ad pixel counted: ${h}`);
+  });
+}
+
+test('live store findings are sensible', () => {
+  const report = (name) => analyze(detect([toPage(real.find((s) => s.store === name))], name));
+  const ridge = report('ridge.com');
+  const t = (r) => r.findings.map((f) => f.title).join('\n');
+  assert.match(t(ridge), /Email marketing \+ Email & SMS/);            // Klaviyo + Mailchimp
+  assert.ok(ridge.removableAppIds.includes('mailchimp'));
+  assert.match(t(ridge), /5 tools for affiliate & referral programs/);   // several affiliate networks: low, not a cut
+  assert.ok(!ridge.removableAppIds.some((id) => ['shareasale', 'awin', 'superfiliate', 'socialsnowball', 'growi'].includes(id)));
+  const colourpop = report('colourpop.com');
+  assert.match(t(colourpop), /2 apps doing the same job: Cookie consent/); // OneTrust + GDPR Cookie Consent
+  assert.match(t(colourpop), /Yotpo widgets/);
+});

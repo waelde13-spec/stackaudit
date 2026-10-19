@@ -34,7 +34,17 @@ export function analyze(detection) {
 
   // 1. Two or more paid apps doing the same job
   for (const [cat, list] of Object.entries(byCategory)) {
-    if (list.length < 2) continue;
+    if (list.length < 2 || CATEGORIES[cat]?.skipDuplicates) continue;
+    if (CATEGORIES[cat]?.multiOk) {
+      // Running several affiliate networks or attribution tools is often deliberate.
+      findings.push({
+        type: 'stack', severity: 'low',
+        title: `${list.length} tools for ${(CATEGORIES[cat]?.label ?? cat).toLowerCase()}`,
+        detail: `${list.map((a) => a.name).join(', ')}. Running several can be deliberate. Check which ones actually bring in sales and drop the rest.`,
+        apps: list.map((a) => a.id), removable: [],
+      });
+      continue;
+    }
     // Which one to keep is the merchant's call; savings assume they keep the priciest
     // (the conservative estimate). The report page recalculates as real prices are typed in.
     const cut = keepPriciest(list.map((a) => a.id), costsDefault(list));

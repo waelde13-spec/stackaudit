@@ -9,9 +9,17 @@ const FIRST_PARTY = [
   'cdn.shopify.com', 'shopify.com', 'myshopify.com', 'shopifycdn.com', 'shopifycloud.com',
   'shop.app', 'shopifysvc.com', 'monorail-edge.shopifysvc.com',
 ];
-// Common non-app infrastructure we don't count as app bloat.
-const INFRA = ['fonts.googleapis.com', 'fonts.gstatic.com', 'www.googletagmanager.com', 'www.google-analytics.com',
-  'connect.facebook.net', 'analytics.tiktok.com', 'static.ads-twitter.com', 'snap.licdn.com', 'bat.bing.com'];
+// Ad pixels, analytics tags and public libraries: real requests, but the marketing team's
+// choice rather than app bloat, so they aren't counted. Matched as host suffixes.
+const INFRA = [
+  'fonts.googleapis.com', 'fonts.gstatic.com', 'use.typekit.net', 'ajax.googleapis.com', 'cdn.jsdelivr.net',
+  'cdnjs.cloudflare.com', 'code.jquery.com', 'unpkg.com', 'accounts.google.com',
+  'googletagmanager.com', 'google-analytics.com', 'doubleclick.net', 'googleadservices.com', 'google.com',
+  'facebook.net', 'facebook.com', 'analytics.tiktok.com', 'ads-twitter.com', 'licdn.com', 'bat.bing.com',
+  'pinimg.com', 'ct.pinterest.com', 'redditstatic.com', 'sc-static.net', 'snapchat.com', 'amazon-adsystem.com',
+  'nextdoor.com', 'axon.ai', 'applovin.com', 'taboola.com', 'outbrain.com', 's.yimg.com', 'adsrvr.org',
+  'simpli.fi', 'mountain.com', 'cloudflareinsights.com', 'lijit.com', 'clarity.ms',
+];
 
 const TAG_RE = /<(script|link|iframe)\b([^>]*)>/gi;
 const ATTR_RE = (name) => new RegExp(`\\b${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i');
@@ -45,7 +53,7 @@ export function extractResources(html, baseUrl) {
 
 const isFirstParty = (host, storeHost) =>
   host === storeHost || FIRST_PARTY.some((d) => host === d || host.endsWith(`.${d}`));
-const isInfra = (host) => INFRA.includes(host);
+const isInfra = (host) => INFRA.some((d) => host === d || host.endsWith(`.${d}`));
 
 // Theme app extensions (app embeds/blocks) load assets from /extensions/<id>/<name>/...
 const EXT_RE = /(?:cdn\.shopify\.com|\/cdn\/shop)\/extensions\/([a-z0-9-]{8,})\/([a-z0-9._-]+)\//gi;
@@ -82,13 +90,16 @@ export function detect(pages, storeHost) {
     const [, id, folder] = em;
     if (!extensions.has(id)) extensions.set(id, folder.replace(/-\d+(\.\d+)*$/, ''));
   }
-  // Extension folders are usually named after the app ("vitals-app-412", "kiwi-size-chart-15"),
+  // Extension folders are usually named after the app ("vitals-app-412", "judgeme"),
   // so they can identify apps on their own, and confirm ones already found.
-  const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const norm = (x) => x.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const matchesEmbed = (fp, f) =>
+    (fp.embeds || []).some((e) => f.startsWith(norm(e))) ||
+    [fp.id, fp.name].some((n) => { const k = norm(n); return f.startsWith(k) || (k.length >= 6 && f.includes(k)); });
   const unidentifiedExtensions = [];
   for (const [id, folder] of extensions) {
     const f = norm(folder);
-    const fp = FINGERPRINTS.find((x) => f.includes(norm(x.id)) || f.includes(norm(x.name)));
+    const fp = FINGERPRINTS.find((x) => matchesEmbed(x, f));
     if (!fp) { unidentifiedExtensions.push({ id, folder }); continue; }
     const existing = detected.find((d) => d.id === fp.id);
     if (existing) { existing.confidence = 'high'; continue; }

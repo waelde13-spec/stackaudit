@@ -7,6 +7,16 @@
   const EXT = /(?:cdn\.shopify\.com|\/cdn\/shop)\/extensions\/[a-z0-9-]{8,}\/[a-z0-9._-]+\//gi;
   const esc = (s) => s.replace(/"/g, '&quot;');
 
+  // Drop the store's own theme/Shopify assets to keep the capture small; keep app proxies and embeds.
+  function worthKeeping(u) {
+    if (!u) return false;
+    try {
+      const url = new URL(u, location.href);
+      const own = url.hostname === location.hostname || url.hostname.endsWith('shopify.com') || url.hostname === 'shop.app';
+      return !own || /\/(extensions|apps|a)\//.test(url.pathname);
+    } catch { return false; }
+  }
+
   function synth(raw, extraUrls = []) {
     const doc = new DOMParser().parseFromString(raw, 'text/html');
     const tag = (el) => {
@@ -17,9 +27,11 @@
         el.getAttribute('type') === 'module' && 'type="module"'].filter(Boolean).join(' ');
       return `<${t} ${t === 'link' ? 'href' : 'src'}="${esc(url)}" ${flags}></${t}>`;
     };
-    const head = [...doc.head.querySelectorAll('script[src],link[href],iframe[src]')].map(tag).join('\n');
-    const body = [...doc.body.querySelectorAll('script[src],link[href],iframe[src]')].map(tag).join('\n');
-    const late = extraUrls.map((u) => `<script src="${esc(u)}" async></script>`).join('\n');
+    const sel = 'script[src],iframe[src],link[rel~=stylesheet][href],link[rel~=preload][href],link[rel~=modulepreload][href]';
+    const keep = (el) => worthKeeping(el.getAttribute(el.tagName === 'LINK' ? 'href' : 'src'));
+    const head = [...doc.head.querySelectorAll(sel)].filter(keep).map(tag).join('\n');
+    const body = [...doc.body.querySelectorAll(sel)].filter(keep).map(tag).join('\n');
+    const late = extraUrls.filter(worthKeeping).map((u) => `<script src="${esc(u)}" async></script>`).join('\n');
     const lower = raw.toLowerCase();
     const hits = PATTERNS.filter((p) => lower.includes(p.toLowerCase())).map((p) => `<!-- ${p} -->`).join('\n');
     const exts = [...new Set(raw.match(EXT) || [])].map((u) => `<!-- ${u} -->`).join('\n');
@@ -40,5 +52,5 @@
   } catch {}
   const cart = await get('/cart');
   if (cart) pages.push({ kind: 'cart', url: location.origin + '/cart', html: synth(cart) });
-  return { store: location.hostname, pages };
+  return JSON.stringify({ store: location.hostname, pages });
 })();

@@ -1,0 +1,48 @@
+{
+  "_note": "Third-party hosts, theme app embeds and app proxies observed on live stores (Oct 2026, captured with scripts/browser-collector.js). Used as regression fixtures; expected = apps a person confirmed from the capture.",
+  "stores": [
+    {
+      "store": "www.deathwishcoffee.com",
+      "hosts": ["static.klaviyo.com/onsite/js/klaviyo.js", "limits.minmaxify.com/limitsv2/x", "files.slideruletools.com/x.js", "static.ordergroove.com/x", "cdn.rebuyengine.com/onsite/js/rebuy.js", "dx.mountain.com/spx", "wtb-tag.mikmak.ai/scripts/x", "sdk.postscript.io/sdk.bundle.js", "www.googletagmanager.com/gtm.js", "connect.facebook.net/en_US/fbevents.js", "widgets.swaven.com/awe/1/loader.js", "snap.licdn.com/x", "tag.simpli.fi/x", "www.clarity.ms/tag/x", "googleads.g.doubleclick.net/x", "id-shop.govx.com/app/x", "services.nofraud.com/js/device.js", "js.smile.io/v1/smile-shopify.js", "config.gorgias.chat/bundle-loader/x", "media.9gtb.com/loader.js", "apps.bazaarvoice.com/apps/inline_ratings", "cdn.bttrack.com/universal/x", "www.lightboxcdn.com/vendor/x", "js.adsrvr.org/x"],
+      "exts": ["test-sms", "bnb-app", "rebuy-personalization-engine"],
+      "proxies": ["/apps/easylockdown"],
+      "expected": ["klaviyo", "minmaxify", "ordergroove", "rebuy", "postscript", "clarity", "govx", "nofraud", "smile", "gorgias", "bazaarvoice", "easylockdown"]
+    },
+    {
+      "store": "www.beardbrand.com",
+      "hosts": ["static.klaviyo.com/onsite/js/klaviyo.js", "static.rechargecdn.com/assets/x", "cdn.aggle.net/oir/oir.min.js", "pre.bossapps.co/js/script", "www.googletagmanager.com/gtag/js", "connect.facebook.net/x", "cdn-client.fueled.io/x", "app.electricsms.com/cart-widget/widget.min.js", "cdn.richpanel.com/js/x", "pxdrop.lijit.com/x"],
+      "exts": ["growi", "judgeme", "preorder-manager"],
+      "proxies": ["/apps/fueled"],
+      "expected": ["klaviyo", "recharge", "preordermanager", "fueled", "electricsms", "richpanel", "growi", "judgeme"]
+    },
+    {
+      "store": "www.puravidabracelets.com",
+      "hosts": ["cdn.intelligems.io/esm/x/bundle.js", "static.klaviyo.com/onsite/js/klaviyo.js", "www.clarity.ms/tag/x", "shopify-extension.getredo.com/v/main.js", "cdn.aggle.net/oir/oir.min.js", "foursixty.com/media/scripts/fs.slider.js", "acsbapp.com/apps/app/dist/js/app.js", "cdn.kustomerapp.com/chat-web/widget.js", "static.rechargecdn.com/assets/js/widget.min.js", "widget.ecocart.tools/ecocart.js", "dr4qe3ddw9y32.cloudfront.net/awin-shopify-integration-code", "bat.bing.com/bat.js"],
+      "exts": ["gdpr-cookie-consent", "judgeme", "rivo-loyalty-rewards-referrals"],
+      "proxies": ["/a/elevar", "/apps/cm", "/apps/kustomer", "/apps/awin"],
+      "expected": ["intelligems", "klaviyo", "clarity", "getredo", "foursixty", "accessibe", "kustomer", "recharge", "ecocart", "awin", "gdprcookieconsent", "judgeme", "rivo", "elevar"]
+    },
+    {
+      "store": "www.tentree.com",
+      "hosts": ["cdn-static.okendo.io/reviews-widget-plus/js/okendo", "static.klaviyo.com/onsite/js/klaviyo.js", "js.klarna.com/web-sdk/v1/klarna.js", "cdn.gladly.com/chat-sdk/widget.js", "cdn.attn.tv/growth-tag-assets/x", "static.hotjar.com/c/hotjar-1.js", "cdn.mida.so/js/optimize.js", "openfpcdn.io/botd/v1", "cdn-loyalty.yotpo.com/loader/x", "widgets.automizely.com/returns/main.js", "cdn.rebuyengine.com/onsite/js/rebuy.js", "cdn-swell-assets.yotpo.com/app.js"],
+      "exts": ["pushowl", "applovin-shop-integration", "tentree-cart-app"],
+      "proxies": [],
+      "expected": ["okendo", "klaviyo", "gladly", "attentive", "hotjar", "mida", "yotpo-loyalty", "aftership-returns", "rebuy", "pushowl", "applovin"],
+      "notExpected": ["yotpo", "aftership"]
+    },
+    {
+      "store": "ridge.com",
+      "hosts": ["cdn.intelligems.io/esm/x/bundle.js", "public.getfondue.com/cashback-extension/x", "static.klaviyo.com/onsite/js/klaviyo.js", "cdn-static.okendo.io/reviews-widget-plus/js/okendo", "surveys.okendo.io/js/init-quizzes.js", "sdk.postscript.io/sdk.bundle.js", "j.northbeam.io/ota-sp/x", "static.hotjar.com/c/hotjar-1.js", "dashboard.heatmap.com/preprocessor.min.js", "static.shareasale.com/json/shopify/deduplication.js", "cdn.richpanel.com/js/x", "form-assets.mailchimp.com/snippet/x", "chimpstatic.com/mcjs-connected/js/x", "id-shop.govx.com/app/x", "superfiliate-cdn.com/storefront.js", "dr4qe3ddw9y32.cloudfront.net/awin-shopify-integration-code", "widgets.automizely.com/returns/main.js", "api.socialsnowball.io/js/referral.js", "cdn.taboola.com/x", "amplify.outbrain.com/x"],
+      "exts": ["growi", "test-sms", "rivo-loyalty-rewards-referrals"],
+      "proxies": ["/a/elevar", "/a/blog", "/a/sitemap-tools", "/apps/awin"],
+      "expected": ["intelligems", "fondue", "klaviyo", "okendo", "postscript", "northbeam", "hotjar", "heatmapcom", "shareasale", "richpanel", "mailchimp", "govx", "superfiliate", "awin", "aftership-returns", "socialsnowball", "growi", "rivo", "elevar"]
+    },
+    {
+      "store": "colourpop.com",
+      "hosts": ["cdn.cookielaw.org/consent/x", "cdn.intelligems.io/esm/x/bundle.js", "cdn-static.okendo.io/reviews-widget-plus/js/okendo", "play.gotolstoy.com/widget-v2/widget.js", "static.klaviyo.com/onsite/js/klaviyo.js", "cdn-widgetsrepository.yotpo.com/v1/loader/x", "config.gorgias.chat/bundle-loader/x", "static.shopmy.us/Affiliates/x", "www.clarity.ms/tag/x", "nosto.stackla.com/media/js/dist/ugc.bundle.js", "cdn.attn.tv/growth-tag-assets/x", "cdn.appmate.io/themecode/x", "cdn-scripts.signifyd.com/shopify/script-tag.js", "js.klevu.com/klevu-js-v1/x", "cdn.refersion.com/pixel.js"],
+      "exts": ["gdpr-cookie-consent", "swish-wishlist-king", "restockrocket-1"],
+      "proxies": ["/apps/restockrocket-production", "/apps/proxy"],
+      "expected": ["onetrust", "intelligems", "okendo", "tolstoy", "klaviyo", "yotpo-suite", "gorgias", "shopmy", "clarity", "stackla", "attentive", "wishlistking", "signifyd", "klevu", "refersion", "gdprcookieconsent", "restockrocket"]
+    }
+  ]
+}

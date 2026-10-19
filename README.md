@@ -30,9 +30,20 @@ Type `demo` into the URL box to see a full sample report without scanning anythi
 1. Pick 10–15 stores whose apps you know. Good sources are app-store "featured merchant" lists, your own dev store, or stores that show the app's branding (e.g. a "Powered by Judge.me" badge).
 2. Run `npm run scan -- <store>` on each.
 3. For anything missed, check the store's page source for the app's script domain and add it to `patterns`.
-4. The **"unnamed app embeds"** section of each scan prints folder names like `mystery-countdown`. These are apps you haven't fingerprinted yet. Add the popular ones.
+4. No shell internet access? Open the store in a browser, paste `scripts/browser-collector.js` into the DevTools console (fill in `__PATTERNS__` or use the summary collector), save the output to `captures/<store>.json`, and run `node scripts/scan-captured.js captures/*.json`.
+5. Add what you confirmed to `test/fixtures/real-stores.json` so it stays detected (`npm test`).
+6. The **"unnamed app embeds"** section of each scan prints folder names like `mystery-countdown`. These are apps you haven't fingerprinted yet. Add the popular ones.
 
 To mark an app as replaceable by a free Shopify feature, set `"nativeReplaceable": true`. Be conservative here, because one bad suggestion makes merchants distrust the whole report.
+
+### What the first live scans showed (Oct 2026)
+
+Scanned Allbirds, Gymshark, Ruggable, Death Wish Coffee, Beardbrand, Pura Vida, Tentree, Ridge and ColourPop. Lessons:
+
+- **Big brands are lean and often headless.** Gymshark and Ruggable run custom storefronts, so there is no theme to audit, and the rest scored 68–100. Your buyers are small and mid-size stores on regular themes, so pitch and test there.
+- **Real findings it caught:** Ridge runs Klaviyo *and* Mailchimp, plus Hotjar *and* Heatmap.com. ColourPop runs two cookie banners (OneTrust and GDPR Cookie Consent).
+- **False positives fixed:** "yotpo.com" matched Yotpo Loyalty and created a fake duplicate with Okendo reviews. Ad pixels (Facebook, Taboola, Bing…) were counted as app bloat. Several affiliate networks at once are normal, so they get a low "check these" note instead of a cut.
+- 40+ apps added from these stores (Redo, GovX ID, Elevar, Intelligems, Okendo quizzes, Rivo, Gladly, Kustomer, Richpanel…).
 
 ## Deploy (day 3)
 
