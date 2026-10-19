@@ -80,7 +80,7 @@
     {"id":"nofraud","name":"NoFraud","category":"fraud","patterns":["nofraud.com"]},
     {"id":"signifyd","name":"Signifyd","category":"fraud","patterns":["signifyd.com"]},
     {"id":"easylockdown","name":"EasyLockdown","category":"store-lock","patterns":["/apps/easylockdown"]},
-    {"id":"preordermanager","name":"Pre-Order Manager","category":"preorder","patterns":["bossapps.co"],"embeds":["preorder-manager","essential-pre-order"]},
+    {"id":"preordermanager","name":"Pre-Order Manager","category":"preorder","patterns":["bossapps.co"],"embeds":["preorder-manager"]},
     {"id":"restockrocket","name":"Restock Rocket","category":"back-in-stock","patterns":["restockrocket"],"embeds":["restockrocket"]},
     {"id":"wishlistking","name":"Wishlist King","category":"wishlist","patterns":["appmate.io"],"embeds":["swish-wishlist-king"]},
     {"id":"tolstoy","name":"Tolstoy","category":"shoppable-video","patterns":["gotolstoy.com"]},
@@ -137,6 +137,7 @@
     {"id":"polar","name":"Polar Analytics","category":"attribution","patterns":["polaranalytics.com"],"embeds":["polar-analytics"]},
     {"id":"seowill","name":"SEOWILL","category":"seo","patterns":[],"embeds":["seowill"]},
     {"id":"swiftspeed","name":"Swift speed optimizer","category":"speed","patterns":["swift.perfectapps.io"]},
-    {"id":"bugherd","name":"BugHerd","category":"dev-tools","patterns":["bugherd.com"]}
+    {"id":"bugherd","name":"BugHerd","category":"dev-tools","patterns":["bugherd.com"]},
+    {"id":"essentialpreorder","name":"Essential Pre-Order","category":"preorder","patterns":[],"embeds":["essential-pre-order"]}
   ]
 }
