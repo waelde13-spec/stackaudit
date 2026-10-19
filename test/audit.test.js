@@ -126,3 +126,16 @@ test('live store findings are sensible', () => {
   assert.match(t(colourpop), /2 apps doing the same job: Cookie consent/); // OneTrust + GDPR Cookie Consent
   assert.match(t(colourpop), /Yotpo widgets/);
 });
+
+test('candle stores: findings a merchant would agree with', () => {
+  const report = (name) => analyze(detect([toPage(real.find((s) => s.store === name))], name));
+  const t = (r) => r.findings.map((f) => f.title).join('\n');
+  const eq = report('shopevilqueen.com');
+  assert.match(t(eq), /2 apps doing the same job: Wishlists/);           // Swym + Smart Wishlist
+  assert.match(t(eq), /2 apps doing the same job: Shipping protection/); // Route + Navidium
+  assert.ok(eq.removableAppIds.includes('mailchimp'));                    // next to Klaviyo
+  assert.match(t(report('paddywax.com')), /BugHerd is loading on your live store/);
+  for (const s of ['anecdotecandles.com', 'www.earlofeast.com']) assert.ok(report(s).removableAppIds.includes('mailchimp'), s);
+  // An announcement bar and a widget builder are not "the same job".
+  assert.ok(!report('www.harlemcandleco.com').findings.some((f) => f.type === 'duplicate'));
+});

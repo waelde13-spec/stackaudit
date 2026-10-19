@@ -74,6 +74,19 @@ export function analyze(detection) {
     cut.forEach((id) => removable.add(id));
   }
 
+  // 2b. Tools meant for the store team that load for every shopper
+  for (const a of paid) {
+    const msg = CATEGORIES[a.category]?.leftover;
+    if (!msg) continue;
+    findings.push({
+      type: 'leftover', severity: 'medium',
+      title: `${a.name} is loading on your live store`,
+      detail: `${a.name} ${msg}`,
+      apps: [a.id], removable: [a.id],
+    });
+    removable.add(a.id);
+  }
+
   // 3. Paid apps where Shopify's free first-party tool realistically covers the typical use.
   // Only apps marked nativeReplaceable qualify — telling a merchant to swap Klaviyo for
   // Shopify Email would cost the whole report its credibility.
@@ -147,6 +160,7 @@ function score(findings, scripts) {
   let s = 100;
   for (const f of findings) {
     if (f.type === 'duplicate') s -= 12;
+    else if (f.type === 'leftover') s -= 6;
     else if (f.type === 'overlap') s -= f.severity === 'medium' ? 8 : 4;
     else if (f.type === 'native') s -= 5;
   }

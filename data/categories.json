@@ -1,5 +1,5 @@
 {
-  "_note": "native = a free first-party Shopify option that covers the basic version of this job. Always worded as 'check whether it covers what you use' \u2014 never as a guaranteed drop-in replacement.",
+  "_note": "native = a free first-party Shopify option that covers the basic version of this job. Always worded as 'check whether it covers what you use' — never as a guaranteed drop-in replacement.",
   "categories": {
     "email-sms": {
       "label": "Email & SMS marketing",
@@ -74,7 +74,7 @@
     },
     "cookie-banner": {
       "label": "Cookie consent",
-      "native": "Shopify's built-in customer privacy banner (Settings \u2192 Customer privacy)"
+      "native": "Shopify's built-in customer privacy banner (Settings → Customer privacy)"
     },
     "yotpo-suite": {
       "label": "Yotpo widgets (reviews or loyalty)",
@@ -135,6 +135,63 @@
     "ad-pixel": {
       "label": "Ad channel",
       "skipDuplicates": true
+    },
+    "shipping-protection": {
+      "label": "Shipping protection"
+    },
+    "predictive-marketing": {
+      "label": "Predictive marketing"
+    },
+    "bookings": {
+      "label": "Bookings & appointments"
+    },
+    "gift-wrap": {
+      "label": "Gift wrap"
+    },
+    "gift-cards": {
+      "label": "Gift cards",
+      "native": "Shopify has built-in gift cards on every plan"
+    },
+    "store-locator": {
+      "label": "Store locator"
+    },
+    "product-options": {
+      "label": "Product options"
+    },
+    "forms": {
+      "label": "Forms"
+    },
+    "gift-with-purchase": {
+      "label": "Free gift with purchase"
+    },
+    "cart-drawer": {
+      "label": "Cart drawer"
+    },
+    "seo": {
+      "label": "SEO"
+    },
+    "speed": {
+      "label": "Speed optimizers"
+    },
+    "dev-tools": {
+      "label": "Developer & feedback tools",
+      "leftover": "is a website feedback tool for your team. It loads for every shopper too, which slows the store and can show your internal comment widget. Turn it on only while you are collecting feedback."
+    },
+    "announcement-bar": {
+      "label": "Announcement & shipping bars"
+    },
+    "urgency": {
+      "label": "Countdown & urgency timers"
+    },
+    "sticky-cart": {
+      "label": "Sticky add-to-cart"
+    },
+    "badges": {
+      "label": "Trust badges & icons"
+    },
+    "widget-builder": {
+      "label": "Widget builders",
+      "skipDuplicates": true
     }
   },
   "overlaps": [
@@ -144,7 +201,7 @@
         "email-sms"
       ],
       "redundant": "email",
-      "note": "Two email platforms \u2014 your email/SMS platform already sends newsletters, so the second email tool is usually redundant."
+      "note": "Two email platforms — your email/SMS platform already sends newsletters, so the second email tool is usually redundant."
     },
     {
       "categories": [
@@ -160,7 +217,7 @@
         "email-sms"
       ],
       "redundant": "popups",
-      "note": "Most email/SMS platforms include their own signup pop-ups \u2014 a separate pop-up app is often redundant."
+      "note": "Most email/SMS platforms include their own signup pop-ups — a separate pop-up app is often redundant."
     },
     {
       "categories": [
@@ -176,7 +233,7 @@
         "reviews"
       ],
       "redundant": null,
-      "note": "Many all-in-one suites include a reviews module \u2014 check whether you're paying for reviews twice."
+      "note": "Many all-in-one suites include a reviews module — check whether you're paying for reviews twice."
     },
     {
       "categories": [
@@ -184,7 +241,7 @@
         "upsell"
       ],
       "redundant": null,
-      "note": "All-in-one suites often include upsell/bundle widgets \u2014 check for duplicate widgets."
+      "note": "All-in-one suites often include upsell/bundle widgets — check for duplicate widgets."
     },
     {
       "categories": [
@@ -193,6 +250,30 @@
       ],
       "redundant": null,
       "note": "Yotpo widgets load alongside another reviews app. If you use Yotpo for reviews too, you are paying for reviews twice."
+    },
+    {
+      "categories": [
+        "all-in-one",
+        "announcement-bar"
+      ],
+      "redundant": "announcement-bar",
+      "note": "All-in-one suites usually include announcement & shipping bars already."
+    },
+    {
+      "categories": [
+        "all-in-one",
+        "urgency"
+      ],
+      "redundant": "urgency",
+      "note": "All-in-one suites usually include countdown & urgency timers already."
+    },
+    {
+      "categories": [
+        "all-in-one",
+        "badges"
+      ],
+      "redundant": "badges",
+      "note": "All-in-one suites usually include trust badges & icons already."
     }
   ]
 }

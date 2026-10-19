@@ -18,7 +18,8 @@ const INFRA = [
   'facebook.net', 'facebook.com', 'analytics.tiktok.com', 'ads-twitter.com', 'licdn.com', 'bat.bing.com',
   'pinimg.com', 'ct.pinterest.com', 'redditstatic.com', 'sc-static.net', 'snapchat.com', 'amazon-adsystem.com',
   'nextdoor.com', 'axon.ai', 'applovin.com', 'taboola.com', 'outbrain.com', 's.yimg.com', 'adsrvr.org',
-  'simpli.fi', 'mountain.com', 'cloudflareinsights.com', 'lijit.com', 'clarity.ms',
+  'simpli.fi', 'mountain.com', 'cloudflareinsights.com', 'lijit.com', 'clarity.ms', 'adroll.com', 'liadm.com',
+  'afterpay.com', 'klarna.com', 'klarnaservices.com', 'iesnare.com', 'apis.google.com', 'maxcdn.bootstrapcdn.com',
 ];
 
 const TAG_RE = /<(script|link|iframe)\b([^>]*)>/gi;
