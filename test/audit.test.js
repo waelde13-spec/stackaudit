@@ -139,3 +139,9 @@ test('candle stores: findings a merchant would agree with', () => {
   // An announcement bar and a widget builder are not "the same job".
   assert.ok(!report('www.harlemcandleco.com').findings.some((f) => f.type === 'duplicate'));
 });
+
+test('a script loaded twice still counts as render-blocking if one copy blocks', () => {
+  const html = '<html><head><script src="https://static.afterpay.com/a.js"></script></head><body class="shopify-section"><script src="https://static.afterpay.com/a.js" async></script></body></html>';
+  const d = detect([{ url: 'https://s.com/', html }], 's.com');
+  assert.equal(d.scripts.renderBlocking.length, 1);
+});

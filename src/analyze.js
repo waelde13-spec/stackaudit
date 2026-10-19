@@ -108,7 +108,7 @@ export function analyze(detection) {
   if (scripts.renderBlocking.length) {
     findings.push({
       type: 'speed', severity: scripts.renderBlocking.length > 2 ? 'high' : 'medium',
-      title: `${scripts.renderBlocking.length} third-party script${plural(scripts.renderBlocking.length)} block the page from rendering`,
+      title: `${scripts.renderBlocking.length} third-party script${plural(scripts.renderBlocking.length)} ${scripts.renderBlocking.length === 1 ? 'blocks' : 'block'} the page from rendering`,
       detail: 'These load in the <head> without async/defer, so shoppers stare at a blank page until they finish. Ask the app vendor for an async embed or remove the app.',
       apps: [], removable: [], urls: scripts.renderBlocking,
     });

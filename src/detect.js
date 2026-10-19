@@ -109,7 +109,11 @@ export function detect(pages, storeHost) {
 
   // 3. Script weight
   const scripts = allResources.filter((r) => r.tag === 'script');
-  const uniqueScripts = [...new Map(scripts.map((s) => [s.url, s])).values()];
+  // The same script can appear twice (head + body, or two pages); keep the blocking copy if any.
+  const blocks = (x) => x.inHead && !x.async;
+  const byUrl = new Map();
+  for (const sc of scripts) if (!byUrl.has(sc.url) || (blocks(sc) && !blocks(byUrl.get(sc.url)))) byUrl.set(sc.url, sc);
+  const uniqueScripts = [...byUrl.values()];
   const thirdParty = uniqueScripts.filter((s) => !isFirstParty(s.host, storeHost));
   const thirdPartyApps = thirdParty.filter((s) => !isInfra(s.host));
   const renderBlocking = uniqueScripts.filter((s) => s.inHead && !s.async && !isFirstParty(s.host, storeHost));
